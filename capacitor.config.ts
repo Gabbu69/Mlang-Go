@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.mlangpocket.app',
-  appName: "M'lang Pocket",
+  appName: 'M’lang Go',
   webDir: 'dist'
 };
 

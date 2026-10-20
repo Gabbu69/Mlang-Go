@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">M\'lang Pocket</string>
-    <string name="title_activity_main">M\'lang Pocket</string>
+    <string name="app_name">M’lang Go</string>
+    <string name="title_activity_main">M’lang Go</string>
     <string name="package_name">com.mlangpocket.app</string>
     <string name="custom_url_scheme">com.mlangpocket.app</string>
 </resources>

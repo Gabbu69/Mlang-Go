@@ -16,7 +16,7 @@ export const DisclaimerBanner: React.FC<DisclaimerBannerProps> = ({ onLearnMore 
         <div className="flex items-start sm:items-center gap-2">
           <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5 sm:mt-0" />
           <p className="leading-snug">
-            <span className="font-bold">Independent Community Utility:</span> M’lang Pocket is an independent civic guide curated from field checks and the{' '}
+            <span className="font-bold">Independent Community Utility:</span> Starter listings are provisional. Some published contacts link to the{' '}
             <a
               href="https://cotabatoprov.gov.ph/directory-of-offices/"
               target="_blank"
@@ -25,7 +25,7 @@ export const DisclaimerBanner: React.FC<DisclaimerBannerProps> = ({ onLearnMore 
             >
               Provincial Directory <ExternalLink className="w-3 h-3 inline" />
             </a>
-            . Not an official LGU app.
+            . Confirm details before travelling. Not an official LGU app.
           </p>
         </div>
 

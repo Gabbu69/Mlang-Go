@@ -21,26 +21,10 @@ import { AddErrandModal } from './components/pocket/AddErrandModal';
 import { TripConsolidator } from './components/pocket/TripConsolidator';
 import { TripClusterView } from './components/pocket/TripClusterView';
 import { Compass, CheckSquare, Bookmark } from 'lucide-react';
+import { APP_NAME } from './config/brand';
 
-const INITIAL_FAVORITES: string[] = ['mdh-hospital', 'rhu-health-office', 'cyberprint-services'];
-
-const INITIAL_ERRANDS: ErrandItem[] = [
-  {
-    id: 'sample-errand-1',
-    title: 'Get Cedula & Cert of Residency for Scholarship/Employment',
-    listingId: 'mto-treasurer-bplo',
-    placeName: 'Municipal Treasurer’s Office & BPLO',
-    notes: 'Go early morning (8:00 AM) to beat the queue. Budget ₱100.',
-    checklist: [
-      { id: 'item-1', text: 'Valid Government or Student ID', completed: true },
-      { id: 'item-2', text: 'Barangay Certificate of Residency', completed: false },
-      { id: 'item-3', text: 'Declared annual gross earnings info', completed: false },
-      { id: 'item-4', text: 'Exact cash for tax fee & documentary stamp', completed: false },
-    ],
-    completed: false,
-    createdAt: new Date().toISOString(),
-  },
-];
+const INITIAL_FAVORITES: string[] = [];
+const INITIAL_ERRANDS: ErrandItem[] = [];
 
 export function App() {
   const [activeTab, setActiveTab] = useState<'directory' | 'pocket'>('directory');
@@ -332,7 +316,7 @@ export function App() {
       <footer className="mt-auto bg-white border-t border-slate-200/90 py-5 text-center text-xs text-slate-500">
         <div className="max-w-4xl mx-auto px-4 space-y-2">
           <div className="flex flex-wrap items-center justify-center gap-2 text-slate-700 font-semibold">
-            <span>M’lang Pocket</span>
+            <span>{APP_NAME}</span>
             <span>•</span>
             <span>Independent Community Guide</span>
             <span>•</span>

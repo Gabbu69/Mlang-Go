@@ -86,12 +86,21 @@ export const ListingCard: React.FC<ListingCardProps> = ({
         {/* Name and Short Name */}
         <div className="mb-1.5">
           <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-800 transition leading-snug">
-            {listing.name}
-            {listing.shortName && (
-              <span className="ml-1.5 text-xs font-normal text-slate-500">
-                ({listing.shortName})
-              </span>
-            )}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(listing);
+              }}
+              className="text-left rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700 cursor-pointer"
+            >
+              {listing.name}
+              {listing.shortName && (
+                <span className="ml-1.5 text-xs font-normal text-slate-500">
+                  ({listing.shortName})
+                </span>
+              )}
+            </button>
           </h3>
         </div>
 

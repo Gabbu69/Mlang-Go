@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Compass, Wifi, WifiOff, ShieldAlert, CheckSquare } from 'lucide-react';
+import { APP_NAME } from '../../config/brand';
+import { BrandMark } from './BrandMark';
 
 interface HeaderProps {
   favoritesCount: number;
@@ -36,14 +38,12 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-4xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           {/* Logo & Brand */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600/70 border border-emerald-400/40 flex items-center justify-center shadow-inner text-amber-300">
-              <Compass className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
+          <div className="min-w-0 flex items-center gap-2.5">
+            <BrandMark className="h-11 w-11 rounded-2xl border border-emerald-400/40 shadow-sm" />
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <h1 className="text-xl font-bold tracking-tight text-white leading-tight">
-                  M’lang Pocket
+                  {APP_NAME}
                 </h1>
                 <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-emerald-700/90 text-emerald-100 border border-emerald-600">
                   Cotabato
@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* About / Transparency Button */}
             <button
               onClick={onOpenAbout}
-              className="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-emerald-700 hover:bg-emerald-600 text-emerald-100 border border-emerald-600/70 transition flex items-center gap-1"
+              className="min-h-12 min-w-12 shrink-0 justify-center px-2.5 py-1.5 rounded-xl text-xs font-medium bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-900 text-emerald-100 border border-emerald-600/70 transition flex items-center gap-1"
               title="Independent guide details and verification sources"
             >
               <ShieldAlert className="w-3.5 h-3.5 text-amber-300" />

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import type { ReportPayload } from '../../types/directory';
-import { ShieldCheck, X, ExternalLink, CheckCircle2, Lock, FileText, AlertCircle, Copy, Check } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2, Lock, FileText, AlertCircle, Copy, Check } from 'lucide-react';
 import { useDialog } from '../../hooks/useDialog';
 import { copyText } from '../../utils/shareUtils';
+import { APP_NAME } from '../../config/brand';
+import { BrandMark } from './BrandMark';
 
 interface AboutModalProps {
   isOpen: boolean;
@@ -30,11 +32,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, reports
         {/* Header */}
         <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-emerald-800 text-white">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-emerald-700 border border-emerald-500/50 flex items-center justify-center text-amber-300">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
+            <BrandMark className="h-10 w-10 rounded-xl border border-emerald-500/50" />
             <div>
-              <h3 id="about-title" className="font-bold text-base leading-tight">About M’lang Pocket</h3>
+              <h3 id="about-title" className="font-bold text-base leading-tight">About {APP_NAME}</h3>
               <p className="text-xs text-emerald-200">Community utility &amp; transparency disclosure</p>
             </div>
           </div>
@@ -56,7 +56,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, reports
               <span>Independent Community Notice</span>
             </div>
             <p className="text-amber-900/90 text-[11px] leading-relaxed">
-              M’lang Pocket is an independent civic utility and community guide. It is <span className="font-bold">NOT</span> an official application of the Local Government Unit (LGU) of M’lang or the Provincial Government of Cotabato unless formal authorization or partnership is established.
+              {APP_NAME} is an independent civic utility and community guide. It is <span className="font-bold">NOT</span> an official application of the Local Government Unit (LGU) of M’lang or the Provincial Government of Cotabato unless formal authorization or partnership is established.
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, reports
               Residents and visitors often lose hours traveling to offices only to discover missing requirements (such as 2x2 photos or uncertified documents), closed lunch windows, or changed phone numbers.
             </p>
             <p className="font-medium text-slate-800">
-              M’lang Pocket answers three fundamental questions for each place:
+              {APP_NAME} answers three fundamental questions for each place:
             </p>
             <ul className="list-disc list-inside space-y-0.5 text-slate-600 pl-1">
               <li><strong>Where should I go?</strong> (Draft street, barangay, and landmark details to confirm)</li>

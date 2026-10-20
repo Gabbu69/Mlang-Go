@@ -1,5 +1,6 @@
 import type { DirectoryListing } from '../types/directory';
 import { formatCheckedDate } from './timeUtils';
+import { APP_NAME } from '../config/brand';
 
 export async function copyText(text: string): Promise<void> {
   try {
@@ -53,12 +54,12 @@ ${requirementsList}
 Source: ${listing.source.name}
 Listing review: ${formatCheckedDate(listing.lastCheckedDate)}
 Confirm current hours, location, and requirements before travelling.
-(Shared via M'lang Pocket Community Guide)`;
+(Shared via ${APP_NAME} Community Guide)`;
 }
 
 export async function shareListing(listing: DirectoryListing): Promise<{ shared: boolean; method: 'native' | 'clipboard' }> {
   const text = formatListingShareText(listing);
-  const title = `${listing.name} — M'lang Pocket Guide`;
+  const title = `${listing.name} — ${APP_NAME} Guide`;
 
   if (navigator.share) {
     try {

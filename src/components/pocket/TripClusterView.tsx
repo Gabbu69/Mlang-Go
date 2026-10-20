@@ -89,10 +89,10 @@ export const TripClusterView = ({
         <div className="flex items-center gap-2">
           <MapPin className="w-4 h-4 text-emerald-700" />
           <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800">
-            Route Optimizer: Grouped by Area ({activeClusters.length} Stops)
+            Suggested Area Groups ({activeClusters.length} Groups)
           </h4>
         </div>
-        <span className="text-[11px] text-slate-500 font-medium">Save tricycle fares</span>
+        <span className="text-[11px] text-slate-500 font-medium">Confirm locations first</span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

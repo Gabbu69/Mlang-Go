@@ -9,7 +9,7 @@ interface TripConsolidatorProps {
 
 export const TripConsolidator = ({ activeErrands }: TripConsolidatorProps) => {
   const [isOpen, setIsOpen] = useState(true);
-  const day = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Manila' });
+  const [day] = useState(() => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Manila' }));
   const [bagChecks, setBagChecks] = useLocalStorage<Record<string, boolean>>(`mlang_pocket_bag_${day}`, {},
     (value): value is Record<string, boolean> => typeof value === 'object' && value !== null && !Array.isArray(value)
       && Object.values(value).every((item) => typeof item === 'boolean'));

@@ -25,10 +25,13 @@ self.addEventListener('fetch', (event) => {
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
     // Keep one build's HTML and assets together; updates activate atomically.
-    const cached = await cache.match(event.request);
+    // Precached same-origin static files do not vary by request headers.
+    // Hosts may add Vary: Origin, while module/style requests add an Origin
+    // header that cache.addAll's requests did not include.
+    const cached = await cache.match(event.request, { ignoreVary: true });
     if (cached) return cached;
     if (event.request.mode === 'navigate') {
-      const index = await cache.match(INDEX_URL);
+      const index = await cache.match(INDEX_URL, { ignoreVary: true });
       if (index) return index;
     }
     return fetch(event.request);

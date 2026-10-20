@@ -33,7 +33,7 @@ export const FavoritesList: React.FC<FavoritesListProps> = ({
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold shadow-xs transition"
         >
           <Compass className="w-4 h-4" />
-          <span>Browse 20 Verified Places</span>
+          <span>Browse the Directory</span>
         </button>
       </div>
     );

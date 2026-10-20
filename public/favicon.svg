@@ -1,14 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#059669" />
-      <stop offset="100%" stop-color="#047857" />
-    </linearGradient>
-  </defs>
-  <rect width="100" height="100" rx="24" fill="url(#grad)" />
-  <path d="M26 36 L74 36 L70 70 C69 76 64 80 58 80 L42 80 C36 80 31 76 30 70 Z" fill="#ffffff" fill-opacity="0.25" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M26 36 C34 44 42 48 50 48 C58 48 66 44 74 36" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-  <!-- Map Pin Accent -->
-  <circle cx="50" cy="56" r="7" fill="#facc15" stroke="#ffffff" stroke-width="2"/>
-  <path d="M50 20 L50 28" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <title>M’lang Go logo</title>
+  <rect width="100" height="100" rx="24" fill="#065F46" />
+  <path d="M50 18C35.64 18 24 29.64 24 44C24 62 50 83 50 83C50 83 76 62 76 44C76 29.64 64.36 18 50 18Z"
+    fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" />
+  <path d="M38 43L47 52L63 35" fill="none" stroke="#FBBF24" stroke-width="7"
+    stroke-linecap="round" stroke-linejoin="round" />
 </svg>

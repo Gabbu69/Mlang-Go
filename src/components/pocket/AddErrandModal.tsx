@@ -21,10 +21,10 @@ export const AddErrandModal: React.FC<AddErrandModalProps> = ({
   const [title, setTitle] = useState(presetListing ? `Visit ${presetListing.name}` : '');
   const [selectedListingId, setSelectedListingId] = useState(presetListing?.id || '');
   const [notes, setNotes] = useState('');
-  const [checklistItems, setChecklistItems] = useState<{ id: string; text: string; completed: boolean }[]>(
+  const [checklistItems, setChecklistItems] = useState<{ id: string; text: string; completed: boolean }[]>(() =>
     presetListing
       ? presetListing.requirements.map((r, i) => ({
-          id: `item-${Date.now()}-${i}`,
+          id: `preset-${presetListing.id}-${i}`,
           text: r.item,
           completed: false,
         }))

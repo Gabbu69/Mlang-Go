@@ -403,7 +403,7 @@ export const ListingDetailModal: React.FC<ListingDetailModalProps> = ({
                           </span>
                         ) : (
                           <span className="text-[9px] uppercase font-semibold px-1.5 py-0.2 bg-slate-100 text-slate-600 rounded">
-                            Standard
+                            Unconfirmed
                           </span>
                         )}
                       </div>
@@ -428,7 +428,7 @@ export const ListingDetailModal: React.FC<ListingDetailModalProps> = ({
             <div className="border border-slate-200 rounded-2xl p-4 bg-white space-y-2">
               <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 uppercase tracking-wider">
                 <HelpCircle className="w-4 h-4 text-amber-500" />
-                <span>Local Tips &amp; Family Advice</span>
+                <span>Draft Tips — Confirm Locally</span>
               </div>
               <ul className="space-y-1.5 text-xs text-slate-600 list-disc list-inside">
                 {listing.tips.map((tip, idx) => (
@@ -443,7 +443,7 @@ export const ListingDetailModal: React.FC<ListingDetailModalProps> = ({
           {/* Verification Source & Audit Transparency */}
           <div className="p-3 bg-slate-100/90 rounded-2xl border border-slate-200 text-xs text-slate-600 space-y-1">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-slate-700">Verification Source:</span>
+              <span className="font-bold text-slate-700">Source Record:</span>
               <span className="text-[11px] font-mono text-slate-500">
                 Method: {listing.source.verificationMethod}
               </span>
@@ -464,7 +464,7 @@ export const ListingDetailModal: React.FC<ListingDetailModalProps> = ({
             </p>
             {listing.source.citationNote && (
               <p className="text-[11px] text-slate-500 italic">
-                Audit note: {listing.source.citationNote}
+                Source note: {listing.source.citationNote}
               </p>
             )}
             <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 border-t border-slate-200/80 mt-2">

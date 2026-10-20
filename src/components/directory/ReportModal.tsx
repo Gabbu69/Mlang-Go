@@ -3,6 +3,7 @@ import type { DirectoryListing, ReportPayload } from '../../types/directory';
 import { AlertTriangle, X, Check, Copy, Send } from 'lucide-react';
 import { useDialog } from '../../hooks/useDialog';
 import { copyText } from '../../utils/shareUtils';
+import { APP_NAME } from '../../config/brand';
 
 interface ReportModalProps {
   listing: DirectoryListing | null;
@@ -42,7 +43,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
     setSubmitted(true);
   };
 
-  const formattedReportText = `[M'lang Pocket Report]
+  const formattedReportText = `[${APP_NAME} Report]
 Listing: ${listing.name} (${listing.id})
 Issue: ${issueType}
 Description: ${description}
