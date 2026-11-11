@@ -56,9 +56,9 @@ export const MLANG_DIRECTORY: DirectoryListing[] = [
       name: 'Province of Cotabato Directory of Offices',
       url: 'https://cotabatoprov.gov.ph/directory-of-offices/',
       verificationMethod: 'Official public directory',
-      citationNote: 'The official provincial directory lists Mlang District Hospital and landline (064) 572-0177. The source was reviewed online on October 16, 2026; no phone call or field visit was made. Other details in this draft remain unconfirmed.',
+      citationNote: 'The official provincial directory lists Mlang District Hospital and landline (064) 572-0177. The hospital name and general landline were rechecked against the official provincial directory on November 11, 2026; no phone call or field visit was made. Other details in this draft remain unconfirmed.',
     },
-    lastCheckedDate: '2026-10-16',
+    lastCheckedDate: '2026-11-11',
     verificationStatus: 'provisional',
     tips: [
       'Bring photocopy of PhilHealth MDR and 2 copies of patient and watcher Valid IDs to avoid rushing to outside photocopy shops during admission.',

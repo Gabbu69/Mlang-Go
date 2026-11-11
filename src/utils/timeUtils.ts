@@ -7,14 +7,14 @@ export interface OpenStatus {
   detailText: string;
 }
 
-export function getOpenStatus(listing: DirectoryListing): OpenStatus {
-  const status = getScheduledOpenStatus(listing);
+export function getOpenStatus(listing: DirectoryListing, now = new Date()): OpenStatus {
+  const status = getScheduledOpenStatus(listing, now);
   return listing.verificationStatus === 'provisional'
     ? { ...status, statusText: `Draft: ${status.statusText}`, detailText: `Unverified schedule. ${status.detailText}` }
     : status;
 }
 
-function getScheduledOpenStatus(listing: DirectoryListing): OpenStatus {
+function getScheduledOpenStatus(listing: DirectoryListing, now: Date): OpenStatus {
   if (listing.openingHours.is24Hours) {
     return {
       isOpen: true,
@@ -26,7 +26,7 @@ function getScheduledOpenStatus(listing: DirectoryListing): OpenStatus {
 
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Asia/Manila', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23',
-  }).formatToParts(new Date());
+  }).formatToParts(now);
   const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value ?? '';
   const currentDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(part('weekday'));
   const currentHour = Number(part('hour')) + Number(part('minute')) / 60;

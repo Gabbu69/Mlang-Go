@@ -5,6 +5,7 @@ import { useDialog } from '../../hooks/useDialog';
 import { copyText } from '../../utils/shareUtils';
 import { APP_NAME } from '../../config/brand';
 import { BrandMark } from './BrandMark';
+import { BackupControls } from './BackupControls';
 
 interface AboutModalProps {
   isOpen: boolean;
@@ -135,6 +136,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, reports
             </p>
           </div>
 
+          <BackupControls />
           {/* Community Feedback & Logged Reports */}
           <div className="p-3.5 bg-emerald-50/50 rounded-2xl border border-emerald-200/80 space-y-2">
             <div className="flex items-center justify-between">
