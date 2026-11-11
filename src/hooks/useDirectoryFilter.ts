@@ -1,8 +1,22 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { DirectoryListing, ServiceCategory } from '../types/directory';
 import { getOpenStatus } from '../utils/timeUtils';
 
 export function useDirectoryFilter(allListings: DirectoryListing[]) {
+  // Recompute scheduled status at minute boundaries and after returning from
+  // a suspended/background tab. This still uses a draft schedule, not live availability.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const refresh = () => setNow(Date.now());
+    const timer = window.setInterval(refresh, 15000);
+    window.addEventListener('focus', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener('focus', refresh);
+      document.removeEventListener('visibilitychange', refresh);
+    };
+  }, []);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>('all');
   const [onlyOpenNow, setOnlyOpenNow] = useState(false);
@@ -34,7 +48,7 @@ export function useDirectoryFilter(allListings: DirectoryListing[]) {
 
       // Open now filter
       if (onlyOpenNow) {
-        const status = getOpenStatus(listing);
+        const status = getOpenStatus(listing, new Date(now));
         if (!status.isOpen) {
           return false;
         }
@@ -66,7 +80,7 @@ export function useDirectoryFilter(allListings: DirectoryListing[]) {
 
       return true;
     });
-  }, [allListings, searchQuery, selectedCategory, onlyOpenNow, selectedBarangay]);
+  }, [allListings, searchQuery, selectedCategory, onlyOpenNow, selectedBarangay, now]);
 
   return {
     searchQuery,

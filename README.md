@@ -8,7 +8,7 @@ The directory is a **provisional starter dataset**, not an official LGU service.
 
 ## Use the app
 
-- Search places and services; filter by category, barangay, or the draft schedule's open status. Calculations use Philippine time and are not live office availability. A view left open across a schedule boundary may need reopening or a filter change to refresh.
+- Search places and services; filter by category, barangay, or the draft schedule's open status. Calculations use Philippine time and are not live office availability. Schedule filters refresh every 15 seconds and when the app regains focus.
 - Open a place to see draft details, contact/source notes, map links, and a suggested packing list. Calling controls appear only for contacts marked as supported by a public source.
 - Save places, create personal errands, import suggested packing items, and check off documents. New installations start with an empty personal pocket.
 - Review the bag summary and suggested area groups. Groups use fixed listing IDs; they do not calculate routes, distances, fares, or travel time.
@@ -33,7 +33,7 @@ npm run build
 npm run preview
 ```
 
-`build` type-checks the source, builds `dist/`, and generates the versioned offline precache manifest. `preview` serves that production bundle locally. There is no `npm test` script; browser checks and physical-device checks are separate validation steps.
+`build` type-checks the source, builds `dist/`, and generates the versioned offline precache manifest. `preview` serves that production bundle locally. `npm test` checks backup validation, restore failure recovery, and Manila schedule boundaries. Browser and physical-device checks remain separate.
 
 ## Build the Android APK on Windows
 
@@ -84,7 +84,7 @@ Alternatively, copy the APK to the phone, open it using its Files app, and allow
 
 The Android APK bundles the directory and app assets for offline use. The web version registers a service worker for production builds only; it needs an initial online load and successful caching on HTTPS or localhost. The development server does not provide production offline behavior. No hosted deployment URL is asserted here.
 
-Favorites, errands, corrections, visit confirmations, and bag checks use device/browser `localStorage`. There is no account, cloud sync, or general backup/restore feature. Reports can be copied/exported; clearing storage or uninstalling may erase personal data. Android and browser installations have separate storage. Invalid saved favorites, errands, reports, or bag checks fall back to defaults and attempt to retain the original value under a recovery key.
+Favorites, errands, corrections, visit confirmations, and bag checks use device/browser `localStorage`. There is no account or cloud sync. About → Back up your pocket exports a versioned JSON file for saved places, errands, corrections, dated bag checks, and visit markers. Choose backup validates its complete shape and 2 MB limit before an explicit restore. Restore replaces matching lists and merges dated records; keep a private export of current data first. Reports can be copied/exported; clearing storage or uninstalling may erase personal data. Android and browser installations have separate storage. Invalid saved favorites, errands, reports, or bag checks fall back to defaults and attempt to retain the original value under a recovery key.
 
 Phone calls require phone service. External maps and source pages need their own connection or supported offline service. Sharing uses browser/WebView capabilities with a clipboard fallback; check it on the target phone.
 
